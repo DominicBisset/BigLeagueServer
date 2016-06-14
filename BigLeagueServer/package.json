@@ -1,0 +1,19 @@
+{
+  "name": "big-league-server",
+  "version": "0.0.0",
+  "description": "BigLeagueServer",
+  "main": "app.js",
+  "author": {
+    "name": "dom",
+    "email": "mail@dominicbisset.co.uk"
+  },
+  
+  "dependencies": {
+    "bookshelf": "^0.9.5",
+    "bookshelf-api": "^1.4.0",
+    "knex": "^0.11.5",
+    "sqlite3": "^3.1.4",
+    
+    "gb-game-models": "../GBGameModels"
+  }
+}
