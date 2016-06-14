@@ -1,0 +1,6 @@
+[submodule "GBGameModels"]
+	path = GBGameModels
+	url = ./GBGameModels
+[submodule "GBLeagueModels"]
+	path = GBLeagueModels
+	url = ./GBLeagueModels/
