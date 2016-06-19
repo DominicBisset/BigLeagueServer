@@ -1,0 +1,5 @@
+./BigLeagueServer/dist/**
+./BigLeagueServer/node_modules/**
+*.map
+./BigLeagueServer/Scripts/**.js
+
