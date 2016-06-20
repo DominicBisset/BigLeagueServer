@@ -3,3 +3,11 @@
 *.map
 ./BigLeagueServer/Scripts/**.js
 
+*.suo
+/.vs/config
+/BigLeagueServer/bin
+/BigLeagueServer/dist
+/BigLeagueServer/node_modules
+/BigLeagueServer/obj/Debug
+/BigLeagueServer/server.js
+/BigLeagueServer/.ntvs_analysis.dat.tmp
