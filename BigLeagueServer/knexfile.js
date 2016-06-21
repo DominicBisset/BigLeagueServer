@@ -1,12 +1,10 @@
 // Update with your config settings.
+
+var config = require("./config.js");
+
 module.exports = {
 
-  development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './dev.sqlite3'
-    }
-  },
+  development: config.dbConfig,
 
   staging: {
     client: 'postgresql',

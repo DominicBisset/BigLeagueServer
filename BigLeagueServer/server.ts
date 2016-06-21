@@ -1,47 +1,30 @@
 ﻿import GBGameModels from 'gb-game-models';
 import {Character} from "./Scripts/Models/Character";
-import {knex, characterTableName} from "./Scripts/DB/knex";
-import http = require('http');
-var port = process.env.port || 1337;
+import {knex} from "./Scripts/DB/knex";
+import {modelsFolder, tableNames} from "./config";
+let express = require('express');
 
-http.createServer(function (req, res) {
-    knex(characterTableName).select().then(function (characters) {
-        let smokeChar: GBGameModels.Character = {
-            name: 'Mercury'
-        };
-        var c = new Character(smokeChar);
-        console.log(c);
-        c.save().then(function (obj) {
-            console.log("save response:", obj);
-        })
-            .error(function (err) {
-                console.log("save error:", err)
-            });
+let app = express();
+let router = express.Router();
 
-        res.writeHead(200, { 'Content-Type': 'application/json' });
+app.get('/', function (req, res) {
+    return knex(tableNames.character).insert({ name: "Smoke" }).then(function (obj) {
+        return knex(tableNames.character).select().then(function (chars) {
+            res.json(chars);
+        });
+    });
+});
 
-        let smoke: GBGameModels.Player = {
-            id: 1,
-            character: smokeChar,
-            movJog: 4,
-            movRun: 6,
-            TAC: 4,
-            kickDice: 4,
-            kickDistance: 6,
-            def: 4,
-            arm: 1,
-            infGenerated: 4,
-            infMax: 6,
-            health: 16,
-            icySpongeLevels: [6, 12],
-            playbook: [],
-            plays: [],
-            playsFor: [],
-            tags: [],
-            validFor: [],
-            baseSize: 30,
-            meleeZone: 1
-        }
-        res.end(JSON.stringify(characters));
-    })
-}).listen(port);
+app.use(function (err, req, res, next) {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+app.use(function (req, res, next) {
+    console.log('Time:', Date.now(), 'Req:', req);
+    next();
+});
+
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000!');
+});

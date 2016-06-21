@@ -5,6 +5,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var bookshelf_1 = require("../DB/bookshelf");
+console.log("Reading the character model");
 var Character = (function (_super) {
     __extends(Character, _super);
     function Character() {
@@ -20,4 +21,3 @@ var Character = (function (_super) {
     return Character;
 }(bookshelf_1.db.Model));
 exports.Character = Character;
-//# sourceMappingURL=Character.js.map

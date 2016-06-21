@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "bookshelf": "^0.9.5",
-    "bookshelf-api": "^1.4.0",
+    "express": "^4.14.0",
     "gb-game-models": "dominicbisset/GBGameModels",
     "knex": "^0.11.5",
     "sqlite3": "^3.1.4"
